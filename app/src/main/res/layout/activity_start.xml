@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<import type="com.example.jetpackcomponentswithkotlin.model.ButtonsName">
+
+</import>
+        <variable
+            name="text1"
+            type="String"
+            />
+        <variable
+            name="text2"
+            type="String"
+            />
+        <variable
+            name="text3"
+            type="String"
+            />
+        <variable
+            name="text4"
+            type="String"
+            />
+        <variable
+            name="text5"
+            type="String"
+            />
+        
+        <variable
+            name="text6"
+            type="ButtonsName" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".activity.StartActivity">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@{text1,default=`Get request`}"
+            android:layout_marginStart="40dp"
+            android:textAllCaps="false"
+            android:backgroundTint="#FF5733"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/get_btn">
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@{text2,default=`Post request`}"
+            android:textAllCaps="false"
+            android:id="@+id/post_btn">
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@{text3,default=`Delete request`}"
+            android:textAllCaps="false"
+            android:backgroundTint="#FF5733"
+            android:id="@+id/Delete_request">
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@{text4,default=`Update request`}"
+            android:textAllCaps="false"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/Update_request">
+        </Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@{text6.name,default=`File upload`}"
+            android:backgroundTint="#FF5733"
+            android:textAllCaps="false"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/file_request">
+        </Button>
+    </LinearLayout>
+</layout>
