@@ -17,8 +17,4 @@ class Observer:LifecycleObserver {
     }
 
 
-
-
-
-
 }

@@ -3,16 +3,25 @@ package com.example.jetpackcomponentswithkotlin.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.room.Room
 import com.example.jetpackcomponentswithkotlin.MainActivity
 import com.example.jetpackcomponentswithkotlin.R
 import com.example.jetpackcomponentswithkotlin.databinding.ActivityStartBinding
 import com.example.jetpackcomponentswithkotlin.model.ButtonsName
 import com.example.jetpackcomponentswithkotlin.observer.Observer
+import com.example.jetpackcomponentswithkotlin.room.Student
+import com.example.jetpackcomponentswithkotlin.room.StudentDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.util.*
 
 class StartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartBinding
+    private lateinit var database:StudentDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,6 +30,8 @@ class StartActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_start)
 
         setContentView(view)
+
+        setupRoomDatabase();
 
         binding.text1="Get Request"
         binding.text2="Post Request"
@@ -74,6 +85,19 @@ class StartActivity : AppCompatActivity() {
         file_request.setOnClickListener(View.OnClickListener {
             val intent=Intent(this,FileActivity::class.java)
             startActivity(intent)
+        })
+
+    }
+
+    private fun setupRoomDatabase() {
+        database= StudentDatabase.getDatabase(this)
+
+        GlobalScope.launch {
+            database.studentDao().insertStudent(Student(0,"Neeraj",12))
+        }
+
+        database.studentDao().getAllStudent().observe(this,{
+            Log.d("ROOMDB","onCreate:$it")
         })
 
     }

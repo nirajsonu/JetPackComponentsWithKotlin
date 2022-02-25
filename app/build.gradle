@@ -70,8 +70,30 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 
 
+
+    //Room Database
+
+    def roomVersion = "2.4.1"
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+
+
+
+    //dragger
+    implementation 'com.google.dagger:dagger-android:2.35.1'
+    implementation 'com.google.dagger:dagger-android-support:2.35.1'
+
+
     //glide to Vector
    // implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
+
+
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
 
 }
